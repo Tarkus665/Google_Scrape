@@ -1,5 +1,5 @@
 
-#SImpler way to get wordlist:
+#Simplest and best way to get DHS words into a list:
 
 >>> DHSWords = []
 >>> Words = open("/Users/applestore/Desktop/Google_Scrape/DHS_words.txt", 'r')
@@ -7,6 +7,23 @@
 	DHSWords = Words.readlines()
 
 
+
+
+
+#This will return the data from a google image search for "yunocchi"
+	#(replace 'yunocchi' with whatever)
+# but will also crash Python...	
+
+import urllib.request
+   
+user_agent = 'Mozilla'
+page = 'https://www.google.com/search?site=&tbm=isch&source=hp&biw=&bih=&q=yunocchi&btnG=Search+by+image'
+headers = {'User-Agent':user_agent,}
+request = urllib.request.Request(page,None,headers)
+response = urllib.request.urlopen(request)
+data = response.read()
+ 
+data
 
 
 
@@ -30,20 +47,7 @@ def getwordsList():
 
 
 
-#This will return the data from a google image search for "yunocchi"
-	#(replace 'yunocchi' with whatever)
-# but will also crash Python.	
 
-import urllib.request
-   
-user_agent = 'Mozilla'
-page = 'https://www.google.com/search?site=&tbm=isch&source=hp&biw=&bih=&q=yunocchi&btnG=Search+by+image'
-headers = {'User-Agent':user_agent,}
-request = urllib.request.Request(page,None,headers)
-response = urllib.request.urlopen(request)
-data = response.read()
- 
-data
 
 
 
