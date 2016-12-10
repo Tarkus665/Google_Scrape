@@ -9,7 +9,7 @@ def searchPic(term):
     if len(img_list)>0:
         for img in img_list:
             savePic(img)
-    print "done..."     
+    print ("done...")     
 
 def getPic (search):
     search = search.replace(" ","%20")
@@ -21,7 +21,7 @@ def getPic (search):
         htmltext = browser.open("https://www.google.com/search?site=imghp&tbm=isch&source=hp&biw=1414&bih=709&q="+search+"&oq="+search)
         img_urls = []
         formatted_images = []
-        soup = BeautifulSoup(htmltext)
+        soup = BeautifulSoup(htmltext, "html.parser")
         results = soup.findAll("a")
         for r in results:
             try:
@@ -37,19 +37,19 @@ def getPic (search):
         return  formatted_images
 
     except:
-        print "error"
+        print ("error")
 
 def savePic(url):
     hs = hashlib.sha224(url).hexdigest()
     file_extension = url.split(".")[-1]
     uri = ""
     dest = uri+hs+"."+file_extension
-    print dest
+    print (dest)
     try:
         urllib.urlretrieve(url,dest)
     except:
-        print "save failed" 
-searchPic("tesla motors")
+        print ("save failed") 
+searchPic("yunocchi")
 
 
 
